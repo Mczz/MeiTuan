@@ -1,3 +1,4 @@
+
 .m-header{
   @at-root .el-header{
     .m-header.m-header-topbar{
@@ -14,8 +15,14 @@
     .position,
     .m-user {
       display: inline-block;
+      .city {
+        color: #999;
+        &:hover {
+          color: #31BBAC;
+        }
+      }
     }
-    .changeCity {
+    .change-city {
       background: #F4F4F4;
       border: 1px solid #E5E5E5;
       border-radius: 2px;
@@ -47,7 +54,7 @@
   }
 
   .m-nav{
-    float: right;
+    // float: right;
     margin: 0;
     padding: 0;
     z-index: 999;
@@ -78,7 +85,7 @@
             display: block;
           }
 
-          .subContainer {
+          .sub-container {
             display: flex;
           }
         }
@@ -131,13 +138,13 @@
           }
         }
 
-        .subContainer {
+        .sub-container {
           box-sizing: border-box;
           background: #fff;
           padding: 30px 36px 36px 47px;
-          width: 1250px;
+          width: 1190px;
           position: relative;
-          left: -1175px;
+          left: -1112px;
           z-index: 999;
           border: 1px solid #e5e5e5;
           display: none;
@@ -173,6 +180,8 @@
               display: inline-block;
               text-align: center;
               font-size: 12px;
+              float: left;
+              line-height: 25px;
             }
 
             &.hotel {

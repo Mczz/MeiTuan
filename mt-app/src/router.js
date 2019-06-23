@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import defaultPage from '@/base/default.vue'
+import defaultPage from '@/layout/default.vue'
 
 Vue.use(Router)
 

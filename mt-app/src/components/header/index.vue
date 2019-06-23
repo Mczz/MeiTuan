@@ -1,5 +1,5 @@
 <template>
-    <div class="header">
+    <div class="m-header">
         <el-row>
             <top-bar/>
         </el-row>
@@ -21,6 +21,6 @@
 
 </script>
 
-<style scoped>
-
+<style lang="sass">
+    @import '@/assets/css/public/header/index.scss'
 </style>
