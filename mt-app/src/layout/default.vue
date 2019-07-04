@@ -3,21 +3,28 @@
       <el-header height=''>
         <myHeader/>
       </el-header>
-      <el-main>Main</el-main>
-      <el-footer height=''>Footer</el-footer>
+      <el-main>
+        <router-view />
+      </el-main>
+      <el-footer height=''>
+        <myFooter/>
+      </el-footer>
     </el-container>
 </template>
 
 <script>
-import myHeader from "@/components/header/index.vue";
+import myHeader from "@/components/header/index.vue"
+import myFooter from "@/components/footer/index.vue"
 export default {
   components: {
-    myHeader
+    myHeader,
+    myFooter
   }
 };
 </script>
 
 <style lang="sass">
     @import '@/assets/css/public/layout.scss'  
+    
 </style>
 

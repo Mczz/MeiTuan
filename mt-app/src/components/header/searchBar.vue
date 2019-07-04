@@ -10,22 +10,15 @@
           <el-button type="primary" icon="el-icon-search"></el-button>
           <dl class="hotPlace" v-if="isHotPlace">
             <dt>热门搜索</dt>
-            <router-link tag="dd" to="/">北京动物园</router-link>
-            <router-link tag="dd" to="/">十渡蹦极俱乐部</router-link>
-            <router-link tag="dd" to="/">北京欢乐谷</router-link>
-            <router-link tag="dd" to="/">欢乐水魔方水上乐园</router-link>
+            <router-link tag="dd" to="{name:'goods',params:{name:index}}" v-for="(item,index) in hotPlaceList" :key="item+index">{{ item }}</router-link>
           </dl>
           <dl class="searchList" v-if="isSearchList">
-            <router-link tag="dd" to="/">火锅</router-link>
-            <router-link tag="dd" to="/">火锅自助餐</router-link>
-            <router-link tag="dd" to="/">火锅 重庆</router-link>
+            <router-link tag="dd" to="{name:'goods',params:{name:index}}" v-for="(item,index) in searchList" :key="item+index">{{ item }}</router-link>
+            
           </dl>
         </div>
         <p class="suggest">
-          <a href="#">北京动物园</a>
-          <a href="#">十渡蹦极俱乐部</a>
-          <a href="#">北京欢乐谷</a>
-          <a href="#">欢乐水魔方水上乐园</a>
+          <a href="#" v-for="(item,index) in suggestList" :key="item+index">{{ item }}</a>
         </p>
       </el-col>
     </el-row>
@@ -37,7 +30,10 @@ export default {
   data() {
     return {
       input: "",
-      isFoucs: false
+      isFoucs: false,
+      hotPlaceList:['北京动物园'],
+      searchList:['火锅'],
+      suggestList:['北京欢乐谷','北京动物园']
     };
   },
   methods: {
