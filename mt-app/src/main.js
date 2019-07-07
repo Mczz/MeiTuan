@@ -7,7 +7,11 @@ import 'element-ui/lib/theme-chalk/index.css'
 import './assets/css/main.css'
 
 Vue.use(ElementUI);
-
+Vue.directive('document-click',{
+  bind(el,binding){
+    document.addEventListener('click',binding.value,false)
+  }
+})
 
 Vue.config.productionTip = false
 

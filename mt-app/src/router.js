@@ -2,8 +2,10 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import defaultPage from '@/layout/default.vue'
 import Index from '@/pages/index.vue'
+import ChangeCity from '@/pages/changeCity.vue'
 
 Vue.use(Router)
+
 
 export default new Router({
   mode: 'history',
@@ -19,6 +21,11 @@ export default new Router({
           path:'/index',
           name:'index',
           component:Index
+        },
+        {
+          path:'/changecity',
+          name:'changecity',
+          component:ChangeCity
         }
       ]
     }
