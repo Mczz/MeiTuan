@@ -12,10 +12,10 @@
     <ul class="ibody">
       <li v-for="(item,index) in list" :key="index">
         <el-card :body-style="{ padding: '0px' }" shadow="never">
-          <img :src="item.img" class="image" />
+          <img :src="item.image" class="image" />
           <div class="cbody">
             <div class="title" :title="item.title">{{ item.title }}</div>
-            <div class="sub-title" :title="item.sub_title">{{ item.sub_title }}</div>
+            <div class="sub-title" :title="item.subTitle">{{ item.sub_title }}</div>
             <div class="price-info" v-if="item.rentNum && item.price_info.current_price">
               <span class="current-price-wrapper">
                 <span class="price-symbol numfont">¥</span>
@@ -47,87 +47,18 @@
 </template>
 
 <script>
+import api from "@/api.js"
 export default {
   data() {
     return {
       kind: "all",
-      list: [
-        {
-          img:
-            "//p0.meituan.net/msmerchant/1a8aaac8cfcf76fae83c2ecd6405bd4c1457315.jpg@368w_208h_1e_1c",
-          title: "北京饭店阳光咖啡厅",
-          sub_title: "特价自助晚餐",
-          price_info: {
-            current_price: 18,
-            old_price: 36
-          },
-          address: "王府井/东单",
-          rentNum: 0
-        },
-        {
-          img:
-            "//p0.meituan.net/msmerchant/1a8aaac8cfcf76fae83c2ecd6405bd4c1457315.jpg@368w_208h_1e_1c",
-          title: "北京饭店阳光咖啡厅",
-          sub_title: "特价自助晚餐",
-          price_info: {
-            current_price: null,
-            old_price: 36,
-            avr_price:18,
-            units:"人均"
-          },
-          address: "王府井/东单",
-          rentNum: 10
-        },
-        {
-          img:
-            "//p0.meituan.net/msmerchant/1a8aaac8cfcf76fae83c2ecd6405bd4c1457315.jpg@368w_208h_1e_1c",
-          title: "北京饭店阳光咖啡厅",
-          sub_title: "特价自助晚餐",
-          price_info: {
-            current_price: 18,
-            old_price: 36
-          },
-          address: "王府井/东单",
-          rentNum: 10
-        },
-        {
-          img:
-            "//p0.meituan.net/msmerchant/1a8aaac8cfcf76fae83c2ecd6405bd4c1457315.jpg@368w_208h_1e_1c",
-          title: "北京饭店阳光咖啡厅",
-          sub_title: "特价自助晚餐",
-          price_info: {
-            current_price: 18,
-            old_price: 36
-          },
-          address: "王府井/东单",
-          rentNum: 10
-        },
-        {
-          img:
-            "//p0.meituan.net/msmerchant/1a8aaac8cfcf76fae83c2ecd6405bd4c1457315.jpg@368w_208h_1e_1c",
-          title: "北京饭店阳光咖啡厅",
-          sub_title: "特价自助晚餐",
-          price_info: {
-            current_price: 18,
-            old_price: 36
-          },
-          address: "王府井/东单",
-          rentNum: 10
-        },
-        {
-          img:
-            "//p0.meituan.net/msmerchant/1a8aaac8cfcf76fae83c2ecd6405bd4c1457315.jpg@368w_208h_1e_1c",
-          title: "北京饭店阳光咖啡厅",
-          sub_title: "特价自助晚餐",
-          price_info: {
-            current_price: 18,
-            old_price: 36
-          },
-          address: "王府井/东单",
-          rentNum: 10
-        }
-      ]
+      list: []
     };
+  },
+  created () {
+    api.resultsByKeywords().then(data => {
+        this.list = data.data.data['all']
+      })
   },
   props: ["navList"],
   methods: {
@@ -136,7 +67,9 @@ export default {
         return false;
       }
       this.kind = e.target.dataset.type;
-      //请求数据
+      api.resultsByKeywords().then(data => {
+        this.list = data.data.data[this.kind]
+      })
     }
   }
 };

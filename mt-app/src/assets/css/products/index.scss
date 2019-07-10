@@ -27,7 +27,7 @@
 
       dd {
         flex: 1;
-
+        
         >h3 {
           font-weight: 500;
           font-size: 16px;
@@ -50,7 +50,10 @@
         .s-item-comment-total {
           color: #f90;
         }
-
+        .s-item-map{
+          color: #13D1BE;
+          cursor: pointer;
+        }
         .s-item-price {
           color: #f60;
         }
@@ -89,6 +92,7 @@
           >span {
             font-size: 12px;
             padding-right: 10px;
+            
           }
 
           >em {
@@ -314,6 +318,7 @@
             color: #ccc;
             font-size: 16px;
             margin-bottom: 11px;
+            font-weight: normal;
           }
         }
 

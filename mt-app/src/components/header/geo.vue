@@ -2,12 +2,10 @@
   <div class="m-geo">
     <div class="position">
       <i class="el-icon-location"/>
-      北京
+      {{ position }}
       <router-link class="change-city" :to="{name:'changecity'}">切换城市</router-link>
       [
-        <a href="#" class="city">大广回族自治县</a>&nbsp;
-        <a href="#" class="city">廊坊</a>&nbsp;
-        <a href="#" class="city">固安</a>
+        <a href="#" class="city" v-for='(item,index) in nearCity' :key='index'>{{ item.name }}</a>&nbsp;
       ]
     </div>
     <div class="m-user">
@@ -18,7 +16,26 @@
 </template>
 
 <script>
-export default {};
+import {mapState} from 'vuex'
+import api from "@/api.js"
+
+export default {
+  computed: {
+    ...mapState(['position'])
+  },
+  data(){
+    return{
+      nearCity:[]
+    }
+  },
+  created () {
+    
+      api.getPosition().then(data => {
+        this.$store.dispatch('setPosition',data.data.data.name)
+        this.nearCity = data.data.data.nearCity;
+    })
+  }
+};
 </script>
 
 <style scoped>

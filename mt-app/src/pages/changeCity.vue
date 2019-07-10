@@ -7,7 +7,7 @@
         <MHot title='热门城市:' :list='hotList'/>
     </el-row>
     <el-row>
-        <MHot title='热门城市:' :list='rencentList'/>
+        <MHot title='最近访问:' :list='rencentList'/>
     </el-row>
     <el-row>
         <catelgroy/>
@@ -20,13 +20,22 @@
 import Province from '@/components/changeCity/province.vue'
 import MHot from "@/components/changeCity/myhot.vue"
 import catelgroy from "@/components/changeCity/categroy.vue"
+import api from "@/api.js"
 
 export default {
     data () {
         return {
-            hotList:['北京','上海'],
-            rencentList:['北京','深圳']
+            hotList:[],
+            rencentList:[]
         }
+    },
+    created () {
+        api.hot().then(data => {
+            this.hotList = data.data.data
+        });
+        api.recents().then(data => {
+            this.rencentList = data.data.data
+        })
     },
     components: {
         Province,

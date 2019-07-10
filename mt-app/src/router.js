@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import defaultPage from '@/layout/default.vue'
 import Index from '@/pages/index.vue'
 import ChangeCity from '@/pages/changeCity.vue'
+import GoodList from '@/pages/goodList.vue'
 
 Vue.use(Router)
 
@@ -26,6 +27,11 @@ export default new Router({
           path:'/changecity',
           name:'changecity',
           component:ChangeCity
+        },
+        {
+          path:'/goodlist/:name',
+          name:'goodlist',
+          component:GoodList
         }
       ]
     }
