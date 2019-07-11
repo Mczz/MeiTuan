@@ -10,7 +10,8 @@ export default new Vuex.Store({
     showCity: false,
     province:'省份',
     city:'城市',
-    position:''
+    position:'',
+    userName:''
   },
   mutations: {
     showPro(state, flag) {
@@ -30,6 +31,9 @@ export default new Vuex.Store({
     },
     setPosition(state,val){
       state.position = val;
+    },
+    setUser(state,data){
+      state.userName = data;
     }
   },
   actions: {

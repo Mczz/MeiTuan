@@ -105,6 +105,18 @@
         }
 
       }
+      .reg{
+        font-size: 14px;
+        margin-top: 10px;
+        a{
+          text-decoration: none;
+          color: #2db3a6!important;
+
+          &:hover{
+            text-decoration: underline;
+          }
+        }
+      }
 
       .el-input {
         margin-top: 10px;
@@ -116,6 +128,7 @@
         a {
           float: right;
           text-decoration: none;
+          color: #2db3a6!important;
         }
 
       }
@@ -157,7 +170,7 @@
         padding: 12px 15px;
       }
     }
-    footer {
+    .footer {
       width: 980px;
       margin: 0 auto 30px;
       text-align: left;

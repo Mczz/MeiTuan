@@ -6,10 +6,10 @@ const myAjax = Axios.create({
     baseURL:URLS.baseURL
 })
 export default{
-    login(uesrname,password){
+    login(userName,password){
         return myAjax.get(URLS.login,{
             params:{
-                uesrname,
+                userName,
                 password,
                 appkey
             }

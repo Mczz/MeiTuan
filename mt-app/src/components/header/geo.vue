@@ -8,9 +8,9 @@
         <a href="#" class="city" v-for='(item,index) in nearCity' :key='index'>{{ item.name }}</a>&nbsp;
       ]
     </div>
-    <div class="m-user">
-      <router-link class="login" :to="{name:'login'}">立即登录</router-link>
-      <router-link class="register" :to="{name:'register'}">注册</router-link>
+    <div class="m-user" v-if='!$store.userName'>
+      <router-link class="login" to="/login">立即登录</router-link>
+      <router-link class="register" to='/register'>注册</router-link>
     </div>
   </div>
 </template>
